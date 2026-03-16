@@ -22,3 +22,10 @@ model.fit(x_train,y_train)
 print(f"训练集的auc:{roc_auc_score(y_train,model.predict_proba(x_train)[:,1]):.4f}")
 print(f"验证集的auc:{roc_auc_score(y_val,model.predict_proba(x_val)[:,1]):.4f}")
 print(f"训练集的auc:{roc_auc_score(y_test,model.predict_proba(x_test)[:,1]):.4f}")
+
+'''AUC分数
+训练集的auc:0.6006
+验证集的auc:0.5891
+训练集的auc:0.5966
+'''
+#这里的AUC分数并没有达到预想中的要大于0.65，可能原因是模型过于简单
