@@ -73,8 +73,9 @@ train_data=[]
 val_data=[]
 test_data=[]
 
-#划分训练集，验证集，测试集，比例为0.7:0.1:0.2
+#划分训练集，验证集，测试集，比例为7:1:2
 for user_id,user_val in features_data.groupby('userid'):
+    #按时间排序
     user_val.sort_values('timestamp')
 
     n=len(user_val)
@@ -87,10 +88,17 @@ for user_id,user_val in features_data.groupby('userid'):
     val_data.append(user_val.iloc[int(n*0.7):int(n*0.8)])
     test_data.append(user_val.iloc[int(n*0.8):])
 
+#合并
 train_df=pd.concat(train_data,ignore_index=True)
 val_df=pd.concat(val_data,ignore_index=True)
 test_df=pd.concat(test_data,ignore_index=True)
 
+#去除时间戳
+train_df=train_df.drop(columns='timestamp')
+val_df=val_df.drop(columns='timestamp')
+test_df=test_df.drop(columns='timestamp')
+
+#保存文件
 train_df.to_csv(r'C:/github/project1/data/split/train.csv',index=False)
 val_df.to_csv(r'C:/github/project1/data/split/val.csv',index=False)
 test_df.to_csv(r'C:/github/project1/data/split/test.csv',index=False)
