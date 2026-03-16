@@ -1,1 +1,4 @@
 data/processed/processed.csv
+data/split/train.csv
+data/split/val.csv
+data/split/test.csv
