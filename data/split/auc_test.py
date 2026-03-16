@@ -23,9 +23,12 @@ print(f"训练集的auc:{roc_auc_score(y_train,model.predict_proba(x_train)[:,1]
 print(f"验证集的auc:{roc_auc_score(y_val,model.predict_proba(x_val)[:,1]):.4f}")
 print(f"训练集的auc:{roc_auc_score(y_test,model.predict_proba(x_test)[:,1]):.4f}")
 
-'''AUC分数
+'''
+基准线：
 训练集的auc:0.6006
 验证集的auc:0.5891
 训练集的auc:0.5966
+这里使用了逻辑回归的简单模型对数据集进行了初步训练，但训练出的AUC分数在0.6左右，并没有达到预想中的
+大于0.65，判断为模型过于简单，也有可能是当前的数据过于原始还没有进行加工，接下来会对数据进行加工处
+理，并使用更加强大的模型对数据进行进一步训练，观察能否能对训练效果进行进一步的优化
 '''
-#这里的AUC分数并没有达到预想中的要大于0.65，可能原因是模型过于简单
