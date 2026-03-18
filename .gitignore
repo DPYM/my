@@ -1,4 +1,3 @@
-data/processed/processed.csv
-data/split/train.csv
-data/split/val.csv
-data/split/test.csv
+data/splited-data/train.csv
+data/splited_data/val.csv
+data/splited_data/test.csv
