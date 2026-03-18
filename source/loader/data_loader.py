@@ -114,12 +114,14 @@ train_df=pd.concat(train_data,ignore_index=True)
 val_df=pd.concat(val_data,ignore_index=True)
 test_df=pd.concat(test_data,ignore_index=True)
 
-
+train_df=train_df.drop(columns='timestamp')
+val_df=val_df.drop(columns='timestamp')
+test_df=test_df.drop(columns='timestamp')
 
 #保存文件
 train_df.to_csv(r'C:/github/project1/data/splited_data/train.csv',index=False)
 val_df.to_csv(r'C:/github/project1/data/splited_data/val.csv',index=False)
 test_df.to_csv(r'C:/github/project1/data/splited_data/test.csv',index=False)
-#把用户行为保存为.pkl文件
+
 with open(r'C:/github/project1/data/processed_data/user_history.pkl','wb') as f:
     pickle.dump(user_history,f)
