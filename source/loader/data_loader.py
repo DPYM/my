@@ -49,18 +49,18 @@ user_encoding=LabelEncoder()
 data['userid']=user_encoding.fit_transform(data['userid'])
 n_users=len(user_encoding.classes_)
 
-#电影id编码
+#电影id编码，标签编码
 movie_encoding=LabelEncoder()
 data['movieid']=movie_encoding.fit_transform(data['movieid'])
 n_movies=len(movie_encoding.classes_)
 
-#硬编码
+#性别采用硬编码
 data['sex']=(data['sex']=='M').astype(int)
 
-#独热编码
+#工作采用独热编码
 job_dummis=pd.get_dummies(data['job'],prefix='job')
 
-#多热编码
+#对于电影类别采用多热编码
 data['movietype_list']=data['movietype'].apply(lambda x:x.split('|'))
 types=set()
 for type in data['movietype_list']:

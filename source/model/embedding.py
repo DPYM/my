@@ -1,10 +1,8 @@
 import pandas as pd
 import pickle
-import torch
 import torch.nn as nn
-from torch.utils.data import Dataset,DataLoader
 
-data_path=r'C:/github/project1/data/processed_data/'
+data_path=r'C:/github/project1/data/splited_data/'
 train_data=pd.read_csv(data_path+'train.csv')
 
 with open(r'C:/github/project1/data/processed_data/user_history.pkl','rb') as f:
@@ -28,7 +26,7 @@ class Embedding(nn.Module):
         self.user_embedding=nn.Embedding(n_users,dim)
         self.movie_embedding=nn.Embedding(n_movies,dim)
 
-    def forward(self,user_ids,movie_ids):
+    def forward(self,user_ids,movie_ids):#前向传播
         user_vecs=self.user_embedding(user_ids)
         movie_vecs=self.movie_embedding(movie_ids)
         return user_vecs,movie_vecs
