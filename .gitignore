@@ -1,3 +1,5 @@
 data/splited_data/train.csv
 data/splited_data/val.csv
 data/splited_data/test.csv
+*.pyc
+__pycache__/
